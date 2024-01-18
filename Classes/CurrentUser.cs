@@ -12,7 +12,7 @@ namespace Airport.Classes
         public static string password;
         public static string connectString(string l, string p)
         {
-            return $@"Data Source=SAVICHEVSERVER\SQLSAVICHEV;Initial Catalog=Airport;User Id = {l};Password = {p}";
+            return $@"Data Source=SANCHES\SQLEXPRESS;Initial Catalog=Airport;User Id = {l};Password = {p}";
         }
     }
 }
