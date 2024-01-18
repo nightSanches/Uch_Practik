@@ -10,13 +10,13 @@
     <Grid>
         <Image Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Airport;component/Images/user.png" Margin="0,18,0,272" Width="160"></Image>
         <Label FontFamily="Arial Black" FontSize="15" HorizontalContentAlignment="Center" Content="Имя пользователя" HorizontalAlignment="Center" Margin="0,198,0,0" VerticalAlignment="Top" Width="222"/>
-        <TextBox FontSize="18" x:Name="tb_login" HorizontalAlignment="Center" TextWrapping="Wrap" Text="superadmin" VerticalAlignment="Top" Width="320" Height="30" Margin="0,230,0,0">
+        <TextBox FontSize="18" x:Name="tb_login" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="30" Margin="0,230,0,0">
             <TextBox.Effect>
                 <DropShadowEffect Opacity="0.5"></DropShadowEffect>
             </TextBox.Effect>
         </TextBox>
         <Label FontFamily="Arial Black" FontSize="15" HorizontalContentAlignment="Center" Content="Пароль" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Width="222"/>
-        <TextBox FontSize="18" x:Name="tb_password" HorizontalAlignment="Center" TextWrapping="Wrap" Text="superadmin" VerticalAlignment="Top" Width="320" Height="30" Margin="0,318,0,0">
+        <TextBox FontSize="18" x:Name="tb_password" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="30" Margin="0,318,0,0">
             <TextBox.Effect>
                 <DropShadowEffect Opacity="0.5"></DropShadowEffect>
             </TextBox.Effect>
