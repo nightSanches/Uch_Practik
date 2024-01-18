@@ -34,7 +34,7 @@
                 <DropShadowEffect Opacity="0.5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="brigades" FontFamily="Arial" FontSize="15" Content="Бригады" HorizontalAlignment="Center" VerticalAlignment="Top" Height="38" Width="198" Margin="0,315,0,0">
+        <Button Click="Brigades_OpenTable" x:Name="brigades" FontFamily="Arial" FontSize="15" Content="Бригады" HorizontalAlignment="Center" VerticalAlignment="Top" Height="38" Width="198" Margin="0,315,0,0">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5"/>
             </Button.Effect>

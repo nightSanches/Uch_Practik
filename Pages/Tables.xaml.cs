@@ -68,5 +68,10 @@ namespace Airport.Pages
         {
             ((MainWindow)Application.Current.MainWindow).frame.Navigate(new Pages.Raspisanye_table());
         }
+
+        private void Brigades_OpenTable(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).frame.Navigate(new Pages.Brigades_table());
+        }
     }
 }

@@ -59,6 +59,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Common\CheckRegex.cs" />
+    <Compile Include="Pages\Brigades_table.xaml.cs">
+      <DependentUpon>Brigades_table.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Jobs_table.xaml.cs">
       <DependentUpon>Jobs_table.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,9 @@
     </Compile>
     <Compile Include="Pages\Vedomost_table.xaml.cs">
       <DependentUpon>Vedomost_table.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Brigades_add_edit.xaml.cs">
+      <DependentUpon>Brigades_add_edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Jobs_add_edit.xaml.cs">
       <DependentUpon>Jobs_add_edit.xaml</DependentUpon>
@@ -108,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Brigades_table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Jobs_table.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Vedomost_table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Brigades_add_edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
