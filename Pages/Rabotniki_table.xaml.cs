@@ -71,18 +71,23 @@ namespace Airport.Pages
 
         private void addClick(object sender, RoutedEventArgs e)
         {
-            Vedomost_add_edit taskWindow = new Vedomost_add_edit();
+            Rabotniki_add_edit taskWindow = new Rabotniki_add_edit();
             if (taskWindow.ShowDialog() == true)
             {
                 DataRow row = table.NewRow();
-                row[1] = Convert.ToDateTime(taskWindow.DateTime);
-                row[2] = taskWindow.FIO;
-                row[3] = taskWindow.Passport;
-                row[4] = Convert.ToInt32(taskWindow.Reis);
-                row[5] = Convert.ToInt32(taskWindow.Kolychestvo);
-                if (taskWindow.Lgota != "")
+                row[1] = taskWindow.Familia;
+                row[2] = taskWindow.Imya;
+                row[3] = taskWindow.Otchestvo;
+                row[4] = Convert.ToDateTime(taskWindow.Date_birth);
+                row[5] = Convert.ToDateTime(taskWindow.Date_employ);
+                row[6] = taskWindow.Experience;
+                row[8] = taskWindow.Pol;
+                row[9] = taskWindow.Adress;
+                row[10] = taskWindow.Town;
+                row[11] = taskWindow.Phone;
+                if (taskWindow.Job != "")
                 {
-                    string queryString = $"SELECT Lgota_kod FROM Lgoty WHERE Lgota_name = '{taskWindow.Lgota}'";
+                    string queryString = $"SELECT Job_kod FROM Jobs WHERE Job_naimenovanye = '{taskWindow.Job}'";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         SqlCommand command = new SqlCommand(queryString, connection);
@@ -91,57 +96,12 @@ namespace Airport.Pages
                         string res = "";
                         while (reader.Read())
                         {
-                            res = reader["Lgota_kod"].ToString();
+                            res = reader["Job_kod"].ToString();
                         }
-                        row[6] = Convert.ToInt32(res);
+                        row[7] = Convert.ToInt32(res);
                         connection.Close();
                     }
                 }
-                row[7] = Convert.ToBoolean(taskWindow.Bagage);
-
-                string queryString3 = $"SELECT Reis_stoimost FROM Raspisanye_viletov WHERE Reis_kod = {row[4]}";
-                string queryString4 = $"SELECT Lgota_skidka FROM Lgoty WHERE Lgota_kod = {row[6]}";
-                double stoimost = 0;
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand command = new SqlCommand(queryString3, connection);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    List<string> res = new List<string>();
-                    while (reader.Read())
-                    {
-                        res.Add(reader["Reis_stoimost"].ToString());
-                    }
-                    foreach (string st in res)
-                    {
-                        stoimost = Convert.ToDouble(st) * Convert.ToDouble(row[5]);
-                    }
-                    connection.Close();
-                }
-                if (row[6].ToString() != "")
-                {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        SqlCommand command = new SqlCommand(queryString4, connection);
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        List<string> res = new List<string>();
-                        while (reader.Read())
-                        {
-                            res.Add(reader["Lgota_skidka"].ToString());
-                        }
-                        foreach (string st in res)
-                        {
-                            stoimost = stoimost - (stoimost * Convert.ToDouble(st));
-                        }
-                        connection.Close();
-                    }
-                }
-                if (taskWindow.Bagage == true)
-                {
-                    stoimost += 300;
-                }
-                row[8] = Convert.ToDouble(stoimost);
                 table.Rows.Add(row);
                 UpdateDB();
             }
@@ -166,7 +126,57 @@ namespace Airport.Pages
 
         private void editClick(object sender, RoutedEventArgs e)
         {
+            Rabotniki_add_edit taskWindow = new Rabotniki_add_edit();
 
+            if ((DataRowView)tableGrid.SelectedItem != null)
+            {
+                DataRowView dataRowView = (DataRowView)tableGrid.SelectedItem;
+
+                taskWindow.sfamilia = dataRowView["Rabotnik_familia"].ToString();
+                taskWindow.simya = dataRowView["Rabotnik_imya"].ToString();
+                taskWindow.sotchestvo = dataRowView["Rabotnik_otchestvo"].ToString();
+                taskWindow.sdate_birth = dataRowView["Rabotnik_date_birth"].ToString();
+                taskWindow.sdate_employ = dataRowView["Rabotnik_date_employment"].ToString();
+                taskWindow.sexperience = dataRowView["Rabotnik_experience"].ToString();
+                taskWindow.sjob = dataRowView["Rabotnik_job"].ToString();
+                taskWindow.spol = dataRowView["Rabotnik_pol"].ToString();
+                taskWindow.sadress = dataRowView["Rabotnik_adress"].ToString();
+                taskWindow.stown = dataRowView["Rabotnik_town"].ToString();
+                taskWindow.sphone = dataRowView["Rabotnik_phone"].ToString();
+                if (taskWindow.ShowDialog() == true)
+                {
+                    dataRowView.BeginEdit();
+                    dataRowView[1] = taskWindow.Familia;
+                    dataRowView[2] = taskWindow.Imya;
+                    dataRowView[3] = taskWindow.Otchestvo;
+                    dataRowView[4] = Convert.ToDateTime(taskWindow.Date_birth);
+                    dataRowView[5] = Convert.ToDateTime(taskWindow.Date_employ);
+                    dataRowView[6] = taskWindow.Experience;
+                    dataRowView[8] = taskWindow.Pol;
+                    dataRowView[9] = taskWindow.Adress;
+                    dataRowView[10] = taskWindow.Town;
+                    dataRowView[11] = taskWindow.Phone;
+                    if (taskWindow.Job != "")
+                    {
+                        string queryString = $"SELECT Job_kod FROM Jobs WHERE Job_naimenovanye = '{taskWindow.Job}'";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+                            SqlDataReader reader = command.ExecuteReader();
+                            string res = "";
+                            while (reader.Read())
+                            {
+                                res = reader["Job_kod"].ToString();
+                            }
+                            dataRowView[7] = Convert.ToInt32(res);
+                            connection.Close();
+                        }
+                    }
+                    dataRowView.EndEdit();
+                    UpdateDB();
+                }
+            }
         }
 
         private void backClick(object sender, RoutedEventArgs e)
