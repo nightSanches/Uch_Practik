@@ -71,6 +71,9 @@
     <Compile Include="Pages\Rabotniki_table.xaml.cs">
       <DependentUpon>Rabotniki_table.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Raspisanye_table.xaml.cs">
+      <DependentUpon>Raspisanye_table.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Vedomost_table.xaml.cs">
       <DependentUpon>Vedomost_table.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,9 @@
     </Compile>
     <Compile Include="Windows\Rabotniki_add_edit.xaml.cs">
       <DependentUpon>Rabotniki_add_edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Raspisanye_add_edit.xaml.cs">
+      <DependentUpon>Raspisanye_add_edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Vedomost_add_edit.xaml.cs">
       <DependentUpon>Vedomost_add_edit.xaml</DependentUpon>
@@ -122,6 +128,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Raspisanye_table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Tables.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Rabotniki_add_edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Raspisanye_add_edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,7 +14,7 @@
                 <DropShadowEffect Opacity="0.5"></DropShadowEffect>
             </Button.Effect>
         </Button>
-        <Button FontFamily="Arial" FontSize="15" Content="Расписание вылетов" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Height="38" Width="198">
+        <Button Click="Raspisanye_OpenTable" FontFamily="Arial" FontSize="15" Content="Расписание вылетов" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Height="38" Width="198">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5"></DropShadowEffect>
             </Button.Effect>
